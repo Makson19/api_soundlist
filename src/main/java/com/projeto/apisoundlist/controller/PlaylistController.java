@@ -26,29 +26,34 @@ public class PlaylistController {
   @Autowired
   private PlaylistService playlistService;
 
+  // GET "/api/playlists"
   @GetMapping
   public ResponseEntity<Page<PlaylistResponseDto>> findAll(@PageableDefault(size = 10) Pageable pagination) {
     return ResponseEntity.ok(playlistService.findAll(pagination));
   }
 
+  // GET "/api/playlists/{id}"
   @GetMapping("/{id}")
   public ResponseEntity<PlaylistResponseDto> findById(@PathVariable Long id) {
     PlaylistResponseDto playlistResponseDto = playlistService.findById(id);
     return ResponseEntity.ok(playlistResponseDto);
   }
 
+  // POST "/api/playlists/{id}"
   @PostMapping
   public ResponseEntity<?> save(@RequestBody @Valid PlaylistRequestDto playlistRequestDto) {
     var playlistCreated = playlistService.save(playlistRequestDto);
     return ResponseEntity.status(201).body(playlistCreated);
   }
 
+  // PUT "/api/playlists/{id}"
   @PutMapping("/{id}")
   public ResponseEntity<PlaylistResponseDto> update(@PathVariable Long id, @RequestBody @Valid PlaylistRequestDto playlistRequestDto) {
     PlaylistResponseDto playlistResponseDto = playlistService.update(id, playlistRequestDto);
     return ResponseEntity.ok(playlistResponseDto);
   }
 
+  // DELETE "/api/playlists/{id}"
   @DeleteMapping("/{id}")
   public ResponseEntity<?> deleteById(@PathVariable Long id) {
     playlistService.deleteById(id);

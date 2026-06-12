@@ -1,3 +1,18 @@
+# spring:
+#   application:
+#     name: apisoundlist
+
 spring:
   application:
     name: apisoundlist
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/soundlist-db?createDatabaseIfNotExist=true
+    password: 115091Mak@
+    username: postgres
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true

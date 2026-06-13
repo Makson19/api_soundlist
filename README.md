@@ -208,8 +208,20 @@ Antes de executar o projeto, verifique se o PostgreSQL esta ativo e se existe um
 
 1. Verifique se o Java 21 esta instalado.
 2. Verifique se o PostgreSQL esta em execucao.
-3. Configure usuario, senha e URL do banco em `src/main/resources/application.yaml`.
-4. Execute a aplicacao com Maven:
+3. Clone o repositório:
+
+```bash
+git clone https://github.com/Makson19/api_soundlist.git
+```
+
+4. Entre na pasta do projeto:
+
+```bash
+cd api_soundlist
+```
+
+5. Configure usuario, senha e URL do banco em `src/main/resources/application.yaml`.
+6. Execute a aplicacao com Maven:
 
 ```bash
 ./mvnw spring-boot:run
